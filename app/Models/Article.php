@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static allowedSorts(string[] $array)
+ */
 class Article extends Model
 {
     use HasFactory;
@@ -26,6 +29,12 @@ class Article extends Model
         'category_id' => 'integer',
         'user_id' => 'integer',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 
     public function category()
     {

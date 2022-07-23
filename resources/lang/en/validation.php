@@ -137,8 +137,9 @@ return [
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
     'no_underscore' => 'The :attribute must no be contain underscores.',
-    'no_starting_dashes' => 'The :attribute must no be contain underscores.',
-    'no_ending_dashes' => 'The :attribute must no be contain underscores.',
+    'no_starting_dashes' => 'The :attribute must no be start with underscores.',
+    'no_ending_dashes' => 'The :attribute must no be end with underscores.',
+
 
     /*
     |--------------------------------------------------------------------------

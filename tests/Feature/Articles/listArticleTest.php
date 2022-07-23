@@ -42,15 +42,14 @@ class listArticleTest extends TestCase
     public function can_fetch_all_articles()
     {
         $articles = Article::factory()->count(3)->create();
-        $response = $this->getJson(route('api.v1.articles.index'));
-
-        $response->assertExactJson([
+        $this->getJson(route('api.v1.articles.index'))
+        ->assertJson([
             'data' => array_map(function ( $art) {
                 $article = new Article();
                 $article->fill($art);
                 return [
                     'type' => 'articles',
-                    'id' => (string) $article->id,
+                    'id' => (string) $article->getRouteKey(),
                     'attributes' => [
                         'title' => $article->title,
                         'slug' => $article->slug,
